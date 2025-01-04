@@ -1427,7 +1427,7 @@ async function createHtmlElement(file) {
     try {
         // Fetch the raw HTML content from the Drive file
         const downloadUrl = `https://drive.google.com/uc?export=download&id=${file.id}`;
-        const response = await fetch(downloadUrl);
+        const response = await fetch(downloadUrl, { mode: 'no-cors' });
 
         if (response.ok) {
             const htmlText = await response.text();
